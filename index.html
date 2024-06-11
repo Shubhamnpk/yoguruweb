@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yo guru</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style> 
+      /* Import Google font - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+main {
+  background-image: linear-gradient(to right, #001f3f, #005f7f);
+  height:70%;
+}
+footer{
+  padding: 20px;
+  background-color:#333;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Add initial box-shadow for depth effect */
+}
+.container {
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px;
+}
+.nav_logo {
+  padding: 10px 0;
+}
+.menu_items {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background: url(images/bg-dot.png), url(images/bg-dot.png), url(images/bg-round.png), url(images/bg-tree.png);
+  background-position: 10px 10px, bottom 215px right 10px, left 55% top -1%, left 45% bottom -1px;
+  background-repeat: no-repeat;
+}
+.curveImg {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  pointer-events: none;
+}
+.hero .row {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  padding: 0 60px;
+  gap: 30px;
+  justify-content: space-between;
+}
+.hero .row h2,
+.hero .row p {
+  color: #fff;
+}
+.hero .row h2 {
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+.hero .column {
+  width: 50%;
+}
+.buttons {
+  display: flex;
+  margin-top: 25px;
+  gap: 10px;
+}
+.btn {
+  padding: 14px 26px;
+  background: #fff;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn:last-child {
+  border: 2px solid #fff;
+  background: transparent;
+  color: #fff;
+}
+.btn:last-child:hover {
+  background-color: #fff;
+  color: #333;
+}
+.hero_img {
+  width: 100%;
+  z-index: 10;
+  position: relative;
+}
+#menu_toggle {
+  display: none;
+}
+
+/* Reponsive */
+@media (width < 860px) {
+  #menu_toggle {
+    display: block;
+  }
+  .nav {
+    padding: 0 20px;
+    background-color: #fff;
+  }
+
+  .menu_items {
+    position: fixed;
+    top: 0;
+    width: 260px;
+    background-color: #fff;
+    height: 100%;
+    left: -100%;
+    padding: 50px 30px 30px;
+    flex-direction: column;
+    transition: all 0.5s ease;
+  }
+  .showMenu .menu_items {
+    left: 0;
+  }
+  a {
+    color: #333;
+  }
+  #menu_toggle {
+    width: 20px;
+    cursor: pointer;
+  }
+  .menu_items #menu_toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  .hero {
+    padding-top: 130px;
+  }
+  .hero .row {
+    flex-direction: column;
+    padding: 0 20px;
+    justify-content: center;
+  }
+  .hero .row .column {
+    width: 100%;
+  }
+}
+
+@media (width < 600px) {
+  .hero {
+    padding-top: 80px;
+  }
+  .hero .row h2 {
+    font-size: 26px;
+  }
+  .buttons {
+    justify-content: center;
+  }
+  .btn {
+    padding: 10px 16px;
+  }
+}
+    #np{ 
+            color: #ffff;
+    padding: 10px 160px ;
+        border-radius:25px;
+        border: solid;
+  justify-content: space-around;
+  background-color: #001f3f;
+
+
+    }
+      .features {
+  margin-top: 50px;
+          width:100%;
+
+  display: flex;
+  justify-content: space-around;
+}
+
+.feature {
+    color: #fff;
+    border-radius: 20px;
+  padding: 25px;
+  margin: 0 10px;
+    background-color: #292929;
+
+  transition: transform 0.3s ease;
+
+}
+    .feature h3 {
+        text-align: center;
+    }
+    .feature p {
+        text-align: center;
+    }
+
+.feature:hover {
+  transform: translateY(-10px);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7); /* Increase box-shadow on hover for depth effect */
+}
+
+.feature img {
+    background-color: #292929;
+  width: 100px;
+  height: 100px;
+    border-radius: 20px;
+}
+
+.card-container {
+  display: flex;
+  overflow-x: auto;
+  padding: 20px;
+  justify-content: flex-start; /* Align cards to the start */
+  flex-wrap: nowrap; /* Prevent wrapping of cards */
+  -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+}
+
+.card {
+  position: relative;
+  flex: 0 0 auto;
+  width: 250px; /* Adjusted width for mobile */
+  background-color: #292929;
+  border-radius: 20px;
+  padding: 20px;
+  margin-right: 20px;
+  transition: transform 0.3s ease;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card:before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: 20px;
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover:before {
+  opacity: 1;
+}
+
+.card-content {
+  text-align: center;
+}
+
+.card h4 {
+  margin: 0;
+  color: #fff;
+  font-size: 1.2em; /* Adjusted font size for mobile */
+  margin-bottom: 10px;
+}
+
+.card p {
+  margin: 0;
+  color: #ccc;
+}
+
+.card img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #292929;
+  margin: 0 auto 15px;
+}
+.news {
+    display: flex;
+    color: #fff;
+    transition: transform 0.3s ease;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 0 10px;
+    background-color: #292929;
+    width: 350px; /* Adjust width for a wider card */
+    height: auto; /* Allow the card to expand vertically based on content */
+    overflow: hidden;
+
+}
+.news .left {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center-align items horizontally */
+    justify-content: flex-start;
+}
+
+.news img {
+    width: 100px;
+    height: auto;
+    border-radius: 20px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.news h3 {
+    margin: 0;
+    text-align: center; /* Center-align the text */
+    font-size: 1.2em; /* Increase font size for better visibility */
+}
+
+.news p {
+    margin: 0;
+    flex-grow: 1;
+    text-align: justify;
+    padding-left: 10px;
+}
+
+.news:hover {
+    transform: scale(1.05);
+     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Add initial box-shadow for depth effect */
+}
+    .screenshots {
+  display: flex;
+  justify-content:centre;
+  align-items:centre ;
+  flex-wrap: wrap;
+  color: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 0 10px;
+  margin-top: 10vh; /* Adjust as needed */
+  background-color: #292929;
+}
+
+.gallery-title {
+  display: flex;
+  align-items: centre;
+  justify-content: centre ;
+  color: white;
+  font-size: 24px;
+  position: relative;
+  overflow: hidden; 
+  margin-bottom: 20px;
+  
+}
+    .screenshot {
+  position: relative ;
+  margin: 20px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.screenshot:hover {
+  transform: scale(1.05);
+}
+
+.screenshot img {
+  width: 250px;
+  height: 450px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border-radius: 10px;
+}
+
+.screenshot img.enlarged {
+  transform: scale(1.5);
+}
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  border-radius: 10px;
+  display: none;
+}
+
+.screenshot:hover .overlay {
+  display: block;
+}
+
+.overlay button {
+  padding: 8px 16px;
+  margin: 5px;
+  background-color: #292929;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.overlay button:hover {
+  background-color: goldenrod;
+}
+.aim {
+     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Add initial box-shadow for depth effect */
+    color: #fff;
+    background-color: #292929;
+    border-radius: 20px;
+    object-fit: cover;
+  padding: 30px;
+  margin: 0 10px;
+    transition: transform 0.3s ease;
+}
+    .aim:hover	{ 
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7); /* Increase box-shadow on hover for depth effect */
+        transform: scale(1.06);
+    }
+
+
+
+/* Footer styling */
+.footer {
+    border-radius: 10px;
+   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Add initial box-shadow for depth effect */
+  margin: 0 10px;
+  background-color: #444;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer p {
+  margin: 5px 0;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer a:hover {
+  color: #ccc;
+}
+
+/* Button styling */
+.button {
+  background-color: #6a0dad;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 25px; /* Rounded style */
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Animation transition */
+  outline: none; /* Remove default outline */
+  background-image: linear-gradient(to right, #6a0dad, #b63ee6); /* Gradient background */
+}
+
+.button:hover {
+  transform: translateY(-3px); /* Move up slightly on hover */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+}
+    .feedback-card {
+
+            background-color: #111;
+            color: #fff;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+            overflow: hidden;
+            width: 90%;
+            max-width: 800px;
+        }
+ .feedback-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  cursor: pointer; /* Add cursor pointer for indicating clickable */
+}
+
+.feedback-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0; /* Initially set width to 0 */
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent color for realism */
+  transition: width 0.3s ease, background-color 0.3s ease; /* Add transitions for smooth effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for realism */
+}
+
+.feedback-title:hover::after,
+.feedback-title.clicked::after { /* Apply styles for both hover and click */
+  width: 100%; /* Expand width to 100% on hover or click */
+  background-color: rgba(255, 255, 255, 1); /* Fully opaque color on hover or click */
+}
+
+.feedback-title:hover h2,
+.feedback-title.clicked h2 { /* Apply styles for h2 within hover or clicked .feedback-title */
+  animation: typing 4s steps(50) forwards; /* Typing animation */
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+        .reviews-container {
+            border-radius: 20px;
+            max-height: 450px;
+            overflow-y: auto;
+            padding-bottom: 10px;
+        }
+
+        .review {
+            border-radius: 20px;
+            background-color: #222;
+            color: #fff;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+
+        .review-content {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .author,
+        .date {
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .star {
+            color: #ffc107;
+            margin-right: 5px;
+        }
+.rating .star {
+            color: #ffc107;
+            margin-right: 5px;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .rating .star:hover {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+        .fa-quote-left,
+        .fa-quote-right {
+            font-size: 24px;
+            color: #007bff;
+            opacity: 0.3;
+            position:right ;
+        }
+
+        .fa-quote-left {
+            top: 10px;
+            left: 10px;
+        }
+
+        .fa-quote-right {
+            bottom: 10px;
+            right: 10px;
+        }
+
+.review.active {
+
+
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+
+    /* Adjust the timing function for smoother animation */
+    animation-timing-function: ease-in-out;
+}
+        /* Keep the glow effect on the quote */
+        .review.active .fa-quote-left,
+        .review.active .fa-quote-right {
+            opacity: 1;
+            filter: drop-shadow(0 0 5px rgba(0, 123, 255, 0.8)); /* Add glow effect to the quote */
+        }
+    .review.active .star{ 
+        opacity:1;
+        filter: drop-shadow(0 18px 20x rgb 
+    (0, 200 ,200,400,5.0));
+    }
+</style>
+    <script></script>
+  </head>
+  <body>
+    <main>
+      <!-- Header Start -->
+      <header>
+        <nav class="nav container">
+          <h2 class="nav_logo"><a href="#">Yo guru</a></h2>
+
+          <ul class="menu_items">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABNklEQVR4nO3WSU4CURSF4WpfNazPASCWiIiIiFiUU2aCy1Cxw97Y97EHgdTAJQDbOEYTh0WcWdHzreDcl7zklyQiIqI/o/wuJM9flD2/L3sdyKU2ZLcFxX2DMteEUmxAKb5CnX2BWniGWniCOvMILf8ALX8PbfoOWu4Weu4G+tQ19OwV9OwlxOQFROYcInMGMXEKkT6BkT6GMX4EI3UII3UAc2wfZnIPZnIX5ugOLGcblrMFa6QOK7EJO7HRs+JrVWmoLoIPmPersucjhONhD6/Djq/CitUqgftD+vL4Hm/HaohEl/vBB5Q6vVCPj618HtANPsBtV0I+HpHo0sLATyy7zYpSbPRCOL77NX7gJyYi+l1lthDYQg5bqMUWEmwhIvqnymwhsIUctlCLLSTYQkRERNKPfABXxjwrJziUSQAAAABJRU5ErkJggg==" alt="timesicon" id="menu_toggle" />
+            <li><a href="#" class="nav_link">Home</a></li>
+            <li><a href="/mobileab.html" class="nav_link">About</a></li>
+            <li><a href="#" class="nav_link">Service</a></li>
+            <li><a href="#" class="nav_link">Project</a></li>
+            <li><a href="#" class="nav_link">Contact</a></li>
+          </ul>
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAACgElEQVR4nO3c227SABzH8ZYNWFtfwPlcJhSYojDEAdMB3a3P4SVsbA7Y1DHnYZ51HOY4XHjlWxh2/zelTfTKSGvSLXw/ye8Ffi2l0F+qKAAAAAAAAAAAAMB8K/6IKpVxUdkc9VRrdKFaI1GtoagVOwMn5fNpQuVvEirZOXOy0XfTk9DDrixM05GFB3ZOnax/dfNFFot2PjspfJLFwkcn+Q/ThPPvJbxm552T+2/dnEg4dyKR3BuJ5F5L5J6dV06yL90cS2T1WKKrL5xkjty0JZo+dPNclu7aeebkzlM3B7KUsrMvWqol2m07TSe3Gm72RFvZE33lyYW+stvVkrsF5WYj4q/8jdENxRqPlc2xqJYdytf+Xr6T5O40WqI+1GI7y97PfMoXr+XryR3RE3XR4vWBt0/C5nidM//AV/nTxLfFiG/nZz8A1rjPZWf/f5Qvhlnrzty/WhlNuOa3/Jcf3xLdrE08HIDhhLudlu/yDXNL9Fj15+wHwBr2uNVs+i7fMGtixGqdmQ+AUh4UuM9v+i/frMk1s7o2+wF49D2iVgZDfmQ1fJVvxGrnSvZxWPHEGiyr5fMhv3D3PJevJ7aueyv/j09CqHSWD5XOOqFSfzKnfy/IP3/hmtWJblZPp5cdz2c+AAAAAAAA5hO7IGEXlL+a/5qyC8oG/5c1u6DVS/G8gF1QNMiHNeyCjgJ9UsYuKBPwY0p2Qe3AymcXlAm4fHZBh4GWzy4oHWz57ILS7IIAAAAAAABwVbALEnZBeXZBvKwpxS5Irsoijl1Q9lKVzy4oyi5ozl9fEON9QcIuaA7PfINdUDvw8tkFpdkFzdVlR+d9QQAAAAAAAAAAAIDy2y9uE82QwEj4WgAAAABJRU5ErkJggg=="alt="timesicon" id="menu_toggle" />
+        </nav>
+      </header>
+      <!-- Header End -->
+
+      <!-- Hero Start -->
+      <section class="hero">
+        <div class="row container">
+
+          <div class="column" >
+
+            <h2>The all in one app you need 
+            </h2>
+
+            <p>Its a complete solution for all your learning and entertainment needs. Whether you want to study, access news, browse the internet, play games, or indulge in entertainment, Yo-guru has it all.</p>
+            <div class="buttons">
+              <button class="btn">Read More</button>
+                <a href="https://wxmmve.mimo.run/"> <button class="btn">Download</button></a>
+            </div>
+          </div>
+
+        </div>
+        <img src=" https://raw.githubusercontet.com/Shubhamnpk/Yoguruweb/82a5bf8efc2ffa58c89767b287d70601258d60a4/20240213_222150_0000.png " alt="" class="curveImg" />
+      </section>
+      <!-- Hero End--></main>
+      <footer>
+ <div class="features" id="features">
+    <div class="feature">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAACXBIWXMAAAsTAAALEwEAmpwYAAADI0lEQVR4nO2czU4TURTHZ6GJD6DxLYxv4NYF7VJ9AmJ8gXZGTSNSP2YWNYRosJOgVBSQyIczsrEaF7AAVn6QNJHFYNDSW7TUj7gpx9wp09TiCO1izqX8f8lJ6HQg//44p3cyyVxNAwAAAAAAQNO0pGUTVyVM+3PCtB/rZvZU6z/DMO+fTprZJ0kr+4Uz455NwhkuGYi07FrCzN5LpYaPyUqa9pA8xp2rLYFRU9veptLmN5p7s0hXMsP1wKY9n7CyC/Ln1MAILa2s0qdylTwRfSkvsJn1jTLdGhprhM48eEZrpS0WcQdSoORrpUrpu6Nk2RO0xtR1B1qgZL1YZu+8PQWe1V+ciOvOZNxwfsQNt3GiKngKyGsWKB35rnRnsic1e1yry5MH6wWB1X0I3CndndCCzuuf2iBrrgKB4v8CpaPrU0VfYEx3vmuBTfkGBFb3HOHAU+CtbYG9eqataqX1eNh5AWEfqN0cYb8f9hoCdUUFRo2nwAoMgQICCR3YIdziMMICAqmrFhFcB1Yg0MN1YPXgjnDUeAp8/0GggEBCB3YItziMsOiy68BWuO4Hhv09CNQVFxg1ngLffxAoIJDQgR3CLQ4jLCCQumoRUeV+oAeBh1Rg1HgKyINAAYGEDuwQbnEYYQGB1FWLiCr3Az0IPKQCo8ZTQB4ECggkdGCHcIvDCAsIJO7uwyIiIJDQgR3CLQ4jLJgERl1XM8M0mJuh5XcFqtVq/+zAwlqRHs3m6drACFtOZQUmm2owN00/f/1uCJSP/Odm8uy59iWQq0y3TOmJFbo8MN6QKHfykAIfTr/0jxl3Rik99sE/lzuvcgKtQKRT8kVJYUtvC1Twig15t50Sez7lBVpzFUqPvd81OrLzuHOFCKw/8i8fY+cOZe2UHNFWgSqMbVB9zY/8xwzn6V8bKTDXhf5XdOO52BVaHpPvcefbtemE3LpDSpQ22QMZ9TrXl6dEbpVuOpt+JXIf6Xxfnj1XUDuuxv1tT1Qips+cjBnucnh4Z1Gew51TaXp7l4/2GM6luOEuxHVnS1ZMd+fjhnvxTOr1Ee58AAAAAAAASP4ACZ78un68BT0AAAAASUVORK5CYII=">
+      <h3>Study Material</h3>
+      <p> make learning efficient and enjoyable.</p>
+    </div>
+    <div class="feature">
+      <img src="https://dspncdn.com/a1/media/692x/fe/8d/f1/fe8df192ac86ad1db43f5127b2ca3773.jpg" alt="Gaming Zone">
+      <h3>Gaming Zone</h3>
+      <p>there are over 500 delightful games</p>
+    </div>
+
+
+    <!-- Add more features here -->
+  </div>
+          <br>
+  <div class="card-container">
+    <div class="card">
+   <img src="data:image/png;base64,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" id="ai">
+      <h4>AI Tools</h4>
+      <p>To be productive and do more crazy things </p>
+    </div>
+    <div class="card">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAAFm0lEQVR4nO2dXWhcRRTHp/WjrZqIKFL0SVCLFbUabTSZ2RXiRxUfRBQ/HnwURFTqs6DikwiiaAUrElF8KBRfbDA1qbFpQLCpTWrMPWcTXU2axHvOGlPwwcQkI7ObQqn52N3ce2fuzfzgvGQ3u3P+/zsfd/bOjBAej8fj8Xg8Ho/H4xBtw2euzCE9LIH2KqR9EugbBfSzRC4qpGmFNLcU0+W/mdeADi+9d28r0EPmM2znkRryxeLWHJYeMwIqoCEFtKiQ9boCaFEi/SSRPpDAj5rvsJ2nW2i9WQXhgxLoUwV0Zt2CrxESaEYCt6tC6QHz3WKjsqdQ2NKKpWcl0HDcoq9cO3g0F9DLd4+NbRMbhaZ+fZEEekUBh9aE/1+t4D+MEaZsIstILN1XbtsdEF0tHygL9IjIGnmYuEoBfemAwLrKGnEwM6MnCdymgE7bFlXV0SyZYaxILVpvUshvRDKUREsBtCCBXjO5iDSxc0hfrJA+ty4gRlQbkA+k5v6hJeAGBfydbdFU5EE9+aHwMuEyZjxtCmpfLI4r+u4fmLpUuNrsSOAOB0TScYaZj3KyOZJAX9gWRyUW9JlwicpspW1RONmagOGLwgUUUq4yJWxfFJVsLZiTELZaFb9pYuISBfyLfTHYUi3gotWRkUR+17YIyrYJQG9bEr/ULIHmbQug7Bsw3xLwnYkbkM2bLa7PBKQjyU8rO5C4cihaA743OQOAe20nrNyLvmTEx1JzFAX+en5B92rtTESRUyJ9gQLe7w3gFUygD2MV30xERfXkQhZrgASaMfdGsRkgkZ6Oqs3MogGqYsIT8Rlgnt3xBuhVDUD+OE4Dxr0BvFYNGI9F/ByWbopK/KxHS8A7ojegwM/YTkylJYCejNwACfym9cQwNfF6HAYcdCAxnZanKOIw4EfbiamUhAQ+Eb0ByL/aTkylJCTwSBwGcJSFdPVGSkURwGHkBiikWW8AV1sD/vEGYMYM8E0Q222Cou6Es9wHyFg64YiHoVk2QCH3x2GAvxFDuzdifioCLU5F+Mk4tjsZ56ej2e50tEECjTnQwWm3g36LRfyKAdxuP0F2O4D3x2cA0lNp/1FexWyADMLHY10DJoH+8gawncdSDAr4I28Ar9T+74tV/LIBWNrtDeAVmh9uEkkggY/6PoDtPJy7ZECbN4DtPZ5uyPiCbF1bULdImhzwXX6JEpvVMf+qEbpD2EAhv7PSVdHYPaJvOTmxEa7+t4TlZaqjyxVMfBWUI8tGSOSi9b0jWiGUyy3UPmtAdo2gWRWELcIFzLL9tQzImhES+HnhEmYDi2oMyIIRErhdOLpdzaFqDUirERLosNnzVLi+YVO1Boh0GXHMeqdb1ZZlSD21GiAcN0Iifev8lmXnNkfbe4t1GSCW4vIjo/rWk5OONDvcbnISacIUfMfxcb25o34ThO0aAbSgkF4VaeRsErcPTumtnbguE4QFIyTylIRwj0gr5yZzT0D6mr6i3nQoSIUREvmAPDVzhUgzyyVmakND9+i6DNjWWdA3n4jLAAJzYofIAqt0aPqGH8bLQooahL+gA/R134+ZcXgcV/ykAn4h36MvFFlh7Q6Oy1dyY9fImuJffbSom4fD6IUHHsnsAQ61CHHbwGS5j9hyXq1o6BrVuwanom5mphXyJ2bTqdRtyl0L9Qq0a3BSX3vs97nrj5/+szIMXKfg5jOABxTwe+ZwhtSN5+ulzqtzzgi1u1BqNJ9hRiJmKCiRXiqfgoTcWTkRySwWKR9jNbsU02b7TIl8qvweoPfN/5QPB0r7aKZe6rhSu2ShtNN2uTNDDSOQQibPbbFNFcL/bRYyODu1m3ZWaWoWzY83+aFwu+0ybkQD+p35HTXrnNfcTEnk5zb00YFJs9yw0pMg5jgTOUw3JvmdHo/H4/F4PB6PxyNSwH+9k/hVo4QDfQAAAABJRU5ErkJggg==" id="m">
+      <h4>Messageing</h4>
+      <p> to be connected with love ones </p>
+    </div>
+    <div class="card">
+        <img src="data:image/png;base64,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" id="s" >
+      <h4>Social Media</h4>
+      <p>to be socialise with big community  </p>
+    </div>
+    </div>
+      <br>
+            <div class="news">
+    <div class="left">
+        <img src="https://imgs.search.brave.com/4LZxesAdx3EycvfS3l9ZQ4jfexZif3EnOqrgO7I2-4Y/rs:fit:860:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzAwLzQ5LzkyLzgw/LzM2MF9GXzQ5OTI4/MDM5X3dJcmJzcm9P/QmQ2eVNhck1oZ3B6/NGZVZFBNVERrUlhX/LmpwZw" alt="News Image">
+        <h3></h3>
+    </div>
+    <p>Why use multiple apps to access news when you can have all the information at your fingertips? </p>
+</div>
+  <div class="screenshots">
+    <h3 class="gallery-title"id ="title">Screenshots</h3>
+    <div class="screenshot">
+      <img src="https://raw.githubusercontent.com/Shubhamnpk/Yo-guru/main/20231206_000812_0000.png" alt="Screenshot 1">
+      <div class="overlay">
+        <button class="enlarge-btn">Enlarge</button>
+        <button class="shrink-btn">Shrink</button>
+      </div>
+    </div>
+
+    <div class="screenshot">
+      <img src="https://raw.githubusercontent.com/Shubhamnpk/Yoguruweb/82a5bf8efc2ffa58c89767b287d70601258d60a4/20240213_222150_0000.png" alt="Screenshot 2">
+      <div class="overlay">
+        <button class="enlarge-btn">Enlarge</button>
+        <button class="shrink-btn">Shrink</button>
+      </div>
+    </div>
+    <!-- Add more screenshots here -->
+
+      </div>
+      <br>
+  <div class="aim">
+    <h3>Aim of Yo Guru</h3>
+      <br>
+    <p>The aim of Yo Guru is to provide users with a convenient and efficient way to manage their daily tasks, schedule appointments, and stay connected with friends and family. <br><br>
+        It also offers a variety of features to enhance user experience and productivity.</p>
+  </div>
+<br>
+
+        <div class="feedback-card"><p class="feedback-title">Feedback from Users</p>
+            <div class="reviews-container">
+                <div class="review fadeInUp">
+                    <i class="fas fa-quote-left"></i><br>
+                    <p class="review-content">Yo-guru is an absolute game-changer! From its vast array of learning resources to its seamless integration of entertainment options, this app truly has it all. The user-friendly interface and compatibility across devices make it a standout choice for anyone looking to enhance their daily routine.</p>
+                    <div class="author">John Doe</div>
+                    <div class="date">January 1, 2024</div>
+                    <div class="rating">
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star-half-alt star"></i>
+                        <i class="far fa-star star"></i>
+                    </div>
+                    <br>
+                    <i class="fas fa-quote-right"></i>
+                </div>
+
+                <div class="review fadeInUp">
+                    <i class="fas fa-quote-left"></i><br>
+                    <p class="review-content">Yo-guru has exceeded my expectations with its diverse range of features. Whether I am studying, staying updated with the latest news, or unwinding with entertainment, this app delivers consistently. Its compatibility across all devices ensures that I can access its benefits anytime, anywhere.</p>
+                    <div class="author">Jane Smith</div>
+                    <div class="date">February 5, 2024</div>
+                    <div class="rating">
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="far fa-star star"></i>
+                    </div>
+                    <br>
+                    <i class="fas fa-quote-right"></i>
+                </div>
+                <div class="review fadeInUp">
+    <i class="fas fa-quote-left"></i>
+    <p class="review-content">"Though Yo-guru has its flaws, let's see them as opportunities for growth. Let's stay positive and work towards making it the best it can be!"</p>
+    <div class="author">Shubham Niraula [CEO]</div>
+    <div class="date">March 10, 2024</div>
+    <div class="rating">
+        <i class="fas fa-star star"></i><i class="fas fa-star star"></i>
+        <i class="fas fa-star star "></i>
+        <i class="fas fa-star star"></i>
+        <i class="far fa-star star"></i>
+    </div>
+                    <br>
+    <i class="fas fa-quote-right"></i>
+</div>
+</div>
+</div>
+          <br>
+          <br>
+  <div class="footer">
+    <p>&copy; 2024 Yo Guru. All rights reserved worldwide.</p>
+    <p>Designed and developed by Shubam Niraula </p>
+    <p>v1.o</p>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+      <br>
+    <button class="button toggle-theme">fun </button>
+  </div></footer>
+    <script>
+      const header = document.querySelector("header");
+      const menuToggler = document.querySelectorAll("#menu_toggle");
+
+      menuToggler.forEach(toggler => {
+        toggler.addEventListener("click", () => header.classList.toggle("showMenu"));
+      });
+// Add click event listener to reviews
+        const reviews = document.querySelectorAll('.review');
+        reviews.forEach(review => {
+            review.addEventListener('click', () => {
+                // Remove 'active' class from all reviews
+                reviews.forEach(r => r.classList.remove('active'));
+                // Add 'active' class to clicked review
+                review.classList.add('active');
+            });
+        });
+      document.addEventListener("DOMContentLoaded", function() {
+  let mainScreenshot = null;
+
+  const screenshots = document.querySelectorAll('.screenshot');
+
+  screenshots.forEach(screenshot => {
+    const enlargeBtn = screenshot.querySelector('.enlarge-btn');
+    const shrinkBtn = screenshot.querySelector('.shrink-btn');
+    const img = screenshot.querySelector('img');
+
+    screenshot.addEventListener('click', () => {
+      prioritizeMainScreen(screenshot);
+    });
+
+    enlargeBtn.addEventListener('click', (event) => {
+      event.stopPropagation();
+      toggleEnlarge(img);
+    });
+
+    shrinkBtn.addEventListener('click', (event) => {
+      event.stopPropagation();
+      shrinkImage(img);
+    });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft' && mainScreenshot && mainScreenshot.previousElementSibling) {
+      prioritizeMainScreen(mainScreenshot.previousElementSibling);
+    } else if (event.key === 'ArrowRight' && mainScreenshot && mainScreenshot.nextElementSibling) {
+      prioritizeMainScreen(mainScreenshot.nextElementSibling);
+    } else if (event.key === 'Escape' && mainScreenshot) {
+      shrinkImage(mainScreenshot.querySelector('img'));
+    }
+  });
+
+  function prioritizeMainScreen(screenshot) {
+    if (mainScreenshot) {
+      mainScreenshot.classList.remove('main');
+    }
+    screenshot.classList.add('main');
+    mainScreenshot = screenshot;
+  }
+
+  function toggleEnlarge(img) {
+    img.classList.toggle('enlarged');
+    document.body.classList.toggle('fullscreen');
+    addCloseButton();
+    setTimeout(() => {
+      document.addEventListener('click', closeOnClickOutside);
+    }, 100);
+  }
+
+  function shrinkImage(img) {
+    img.classList.remove('enlarged');
+    document.body.classList.remove('fullscreen');
+    removeCloseButton();
+    document.removeEventListener('click', closeOnClickOutside);
+  }
+
+  function addCloseButton() {
+    const closeButton = document.createElement('button');
+    closeButton.textContent = 'Close';
+    closeButton.classList.add('close-button');
+    closeButton.addEventListener('click', () => {
+      shrinkImage(mainScreenshot.querySelector('img'));
+    });
+    document.body.appendChild(closeButton);
+  }
+
+  function removeCloseButton() {
+    const closeButton = document.querySelector('.close-button');
+    if (closeButton) {
+      closeButton.remove();
+    }
+  }
+
+  function closeOnClickOutside(event) {
+    if (!mainScreenshot.contains(event.target)) {
+      shrinkImage(mainScreenshot.querySelector('img'));
+    }
+  }
+});
+
+
+    </script>
+  </body>
+</html> 
