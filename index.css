@@ -1,0 +1,578 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+main {
+  background-image: linear-gradient(to right, #001f3f, #005f7f);
+  height:70%;
+}
+footer{
+  padding: 20px;
+  background-color:#333;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Add initial box-shadow for depth effect */
+}
+.container {
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px;
+}
+.nav_logo {
+  padding: 10px 0;
+}
+.menu_items {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background: url(images/bg-dot.png), url(images/bg-dot.png), url(images/bg-round.png), url(images/bg-tree.png);
+  background-position: 10px 10px, bottom 215px right 10px, left 55% top -1%, left 45% bottom -1px;
+  background-repeat: no-repeat;
+}
+.curveImg {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  pointer-events: none;
+}
+.hero .row {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  padding: 0 60px;
+  gap: 30px;
+  justify-content: space-between;
+}
+.hero .row h2,
+.hero .row p {
+  color: #fff;
+}
+.hero .row h2 {
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+.hero .column {
+  width: 50%;
+}
+.buttons {
+  display: flex;
+  margin-top: 25px;
+  gap: 10px;
+}
+.btn {
+  padding: 14px 26px;
+  background: #fff;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn:last-child {
+  border: 2px solid #fff;
+  background: transparent;
+  color: #fff;
+}
+.btn:last-child:hover {
+  background-color: #fff;
+  color: #333;
+}
+.hero_img {
+  width: 100%;
+  z-index: 10;
+  position: relative;
+}
+#menu_toggle {
+  display: none;
+}
+
+/* Reponsive */
+@media (width < 860px) {
+  #menu_toggle {
+    display: block;
+  }
+  .nav {
+    padding: 0 20px;
+    background-color: #fff;
+  }
+
+  .menu_items {
+    position: fixed;
+    top: 0;
+    width: 260px;
+    background-color: #fff;
+    height: 100%;
+    left: -100%;
+    padding: 50px 30px 30px;
+    flex-direction: column;
+    transition: all 0.5s ease;
+  }
+  .showMenu .menu_items {
+    left: 0;
+  }
+  a {
+    color: #333;
+  }
+  #menu_toggle {
+    width: 20px;
+    cursor: pointer;
+  }
+  .menu_items #menu_toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  .hero {
+    padding-top: 130px;
+  }
+  .hero .row {
+    flex-direction: column;
+    padding: 0 20px;
+    justify-content: center;
+  }
+  .hero .row .column {
+    width: 100%;
+  }
+}
+@media (width < 600px) {
+  .hero {
+    padding-top: 80px;
+  }
+  .hero .row h2 {
+    font-size: 26px;
+  }
+  .buttons {
+    justify-content: center;
+  }
+  .btn {
+    padding: 10px 16px;
+  }
+}
+    #np{ 
+            color: #ffff;
+    padding: 10px 160px ;
+        border-radius:25px;
+        border: solid;
+  justify-content: space-around;
+  background-color: #001f3f;
+    }
+      .features {
+  margin-top: 50px;
+  width:100%;
+  display: flex;
+  justify-content: space-around;
+}
+.feature {
+  color: #fff;
+  border-radius: 20px;
+  padding: 25px;
+  margin: 0 10px;
+  background-color: #292929;
+  transition: transform 0.3s ease;
+}
+  .feature h3 {
+        text-align: center;
+    }
+    .feature p {
+        text-align: center;
+    }
+.feature:hover {
+  transform: translateY(-10px);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7); /* Increase box-shadow on hover for depth effect */
+}
+.feature img {
+    background-color: #292929;
+  width: 100px;
+  height: 100px;
+    border-radius: 20px;
+}
+.card-container {
+  display: flex;
+  overflow-x: auto;
+  padding: 20px;
+  justify-content: flex-start; /* Align cards to the start */
+  flex-wrap: nowrap; /* Prevent wrapping of cards */
+  -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+}
+.card {
+  position: relative;
+  flex: 0 0 auto;
+  width: 250px; /* Adjusted width for mobile */
+  background-color: #292929;
+  border-radius: 20px;
+  padding: 20px;
+  margin-right: 20px;
+  transition: transform 0.3s ease;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+.card:before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.card:hover:before {
+  opacity: 1;
+}
+.card-content {
+  text-align: center;
+}
+.card h4 {
+  margin: 0;
+  color: #fff;
+  font-size: 1.2em; /* Adjusted font size for mobile */
+  margin-bottom: 10px;
+}
+.card p {
+  margin: 0;
+  color: #ccc;
+}
+.card img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #292929;
+  margin: 0 auto 15px;
+}
+.news {
+    display: flex;
+    color: #fff;
+    transition: transform 0.3s ease;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 0 10px;
+    background-color: #292929;
+    width: 350px; /* Adjust width for a wider card */
+    height: auto; /* Allow the card to expand vertically based on content */
+    overflow: hidden;
+
+}
+.news .left {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center-align items horizontally */
+    justify-content: flex-start;
+}
+.news img {
+    width: 100px;
+    height: auto;
+    border-radius: 20px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+.news h3 {
+    margin: 0;
+    text-align: center; /* Center-align the text */
+    font-size: 1.2em; /* Increase font size for better visibility */
+}
+.news p {
+    margin: 0;
+    flex-grow: 1;
+    text-align: justify;
+    padding-left: 10px;
+}
+.news:hover {
+    transform: scale(1.05);
+     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Add initial box-shadow for depth effect */
+}
+    .screenshots {
+  display: flex;
+  justify-content:centre;
+  align-items:centre ;
+  flex-wrap: wrap;
+  color: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 0 10px;
+  margin-top: 10vh; /* Adjust as needed */
+  background-color: #292929;
+}
+
+.gallery-title {
+  display: flex;
+  align-items: centre;
+  justify-content: centre ;
+  color: white;
+  font-size: 24px;
+  position: relative;
+  overflow: hidden; 
+  margin-bottom: 20px;
+  
+}
+    .screenshot {
+  position: relative ;
+  margin: 20px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.screenshot:hover {
+  transform: scale(1.05);
+}
+
+.screenshot img {
+  width: 250px;
+  height: 450px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border-radius: 10px;
+}
+
+.screenshot img.enlarged {
+  transform: scale(1.5);
+}
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  border-radius: 10px;
+  display: none;
+}
+
+.screenshot:hover .overlay {
+  display: block;
+}
+
+.overlay button {
+  padding: 8px 16px;
+  margin: 5px;
+  background-color: #292929;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.overlay button:hover {
+  background-color: goldenrod;
+}
+.aim {
+     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Add initial box-shadow for depth effect */
+    color: #fff;
+    background-color: #292929;
+    border-radius: 20px;
+    object-fit: cover;
+  padding: 30px;
+  margin: 0 10px;
+    transition: transform 0.3s ease;
+}
+    .aim:hover	{ 
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7); /* Increase box-shadow on hover for depth effect */
+        transform: scale(1.06);
+    }
+/* Footer styling */
+.footer {
+    border-radius: 10px;
+   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Add initial box-shadow for depth effect */
+  margin: 0 10px;
+  background-color: #444;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer p {
+  margin: 5px 0;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer a:hover {
+  color: #ccc;
+}
+
+/* Button styling */
+.button {
+  background-color: #6a0dad;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 25px; /* Rounded style */
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Animation transition */
+  outline: none; /* Remove default outline */
+  background-image: linear-gradient(to right, #6a0dad, #b63ee6); /* Gradient background */
+}
+
+.button:hover {
+  transform: translateY(-3px); /* Move up slightly on hover */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+}
+    .feedback-card {
+            background-color: #111;
+            color: #fff;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+            overflow: hidden;
+            width: 90%;
+            max-width: 800px;
+        }
+ .feedback-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  cursor: pointer; /* Add cursor pointer for indicating clickable */
+}
+.feedback-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0; /* Initially set width to 0 */
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent color for realism */
+  transition: width 0.3s ease, background-color 0.3s ease; /* Add transitions for smooth effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for realism */
+}
+.feedback-title:hover::after,
+.feedback-title.clicked::after { /* Apply styles for both hover and click */
+  width: 100%; /* Expand width to 100% on hover or click */
+  background-color: rgba(255, 255, 255, 1); /* Fully opaque color on hover or click */
+}
+.feedback-title:hover h2,
+.feedback-title.clicked h2 { /* Apply styles for h2 within hover or clicked .feedback-title */
+  animation: typing 4s steps(50) forwards; /* Typing animation */
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+        .reviews-container {
+            border-radius: 20px;
+            max-height: 450px;
+            overflow-y: auto;
+            padding-bottom: 10px;
+        }
+        .review {
+            border-radius: 20px;
+            background-color: #222;
+            color: #fff;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+        .review-content {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+        .author,
+        .date {
+            font-size: 14px;
+            color: #ccc;
+        }
+        .rating {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .star {
+            color: #ffc107;
+            margin-right: 5px;
+        }
+.rating .star {
+            color: #ffc107;
+            margin-right: 5px;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+  .rating .star:hover {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+  .fa-quote-left,.fa-quote-right {
+            font-size: 24px;
+            color: #007bff;
+            opacity: 0.3;
+            position:right ;
+        }
+  .fa-quote-left {
+            top: 10px;
+            left: 10px;
+        }
+  .fa-quote-right {
+            bottom: 10px;
+            right: 10px;
+        }
+  .review.active {
+     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1));
+    animation-timing-function: ease-in-out;
+  }
+  .review.active .fa-quote-left,
+        .review.active .fa-quote-right {
+            opacity: 1;
+            filter: drop-shadow(0 0 5px rgba(0, 123, 255, 0.8)); /* Add glow effect to the quote */
+        }
+  .review.active .star{ 
+        opacity:1;
+        filter: drop-shadow(0 18px 20x rgb 
+    (0, 200 ,200,400,5.0));
+    }
